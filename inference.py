@@ -34,8 +34,8 @@ if __name__ == "__main__":
     set_random_seeds()
     args = parse_arguments()
 
-    tokenizer = AutoTokenizer.from_pretrained(args.base_model_path)
-    test_data = read_json(args.test_data_path)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_path)
+    test_data = read_json(args.input_path)
     test_dataset = ClassicalChineseDataset(
         test_data, tokenizer, is_train=False,
         incontext=True if args.method == "few-shot" else False
@@ -48,11 +48,11 @@ if __name__ == "__main__":
     # Get bnb config
     bnb_config = get_bnb_config()
     model = AutoModelForCausalLM.from_pretrained(
-        args.base_model_path,
+        args.model_path,
         torch_dtype=torch.bfloat16,
         quantization_config=bnb_config
     )
-    model = PeftModel.from_pretrained(model, args.peft_path)
+    model = PeftModel.from_pretrained(model, args.adapt_checkpoint_path)
     model.eval()
 
     prediction_list = []
