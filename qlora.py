@@ -325,7 +325,7 @@ def get_accelerate_model(args, checkpoint_dir):
         #     bnb_4bit_use_double_quant=args.double_quant,
         #     bnb_4bit_quant_type=args.quant_type,
         # ),
-        quantization_config=get_bnb_config()
+        quantization_config=get_bnb_config(),
         torch_dtype=(torch.float32 if args.fp16 else (torch.bfloat16 if args.bf16 else torch.float32)),
         trust_remote_code=args.trust_remote_code,
         use_auth_token=args.use_auth_token
