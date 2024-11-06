@@ -2,12 +2,12 @@ import os
 import torch
 
 from tqdm import tqdm
-
-from src.constants import CHECKPOINT_DIR
 from src.tracker import MetricTracker
 from src.perplexity import Perplexity
 from src.utils import dict_to_device
 
+CHECKPOINT_DIR = "checkpoint"
+os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 
 class Trainer:
     def __init__(
