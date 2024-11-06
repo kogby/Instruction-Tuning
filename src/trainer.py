@@ -4,7 +4,7 @@ import torch
 from tqdm import tqdm
 from src.tracker import MetricTracker
 from src.perplexity import Perplexity
-from src.utils import dict_to_device
+from utils import dict_to_device
 
 CHECKPOINT_DIR = "checkpoint"
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
