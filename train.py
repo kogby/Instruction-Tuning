@@ -8,11 +8,10 @@ from argparse import Namespace, ArgumentParser
 from transformers import AutoModelForCausalLM, AutoTokenizer, get_scheduler
 from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 
-from utils import get_bnb_config
-from src.dataset import ClassicalChineseDataset, collate_func
+from utils import get_bnb_config, set_random_seeds, read_json
+from preprocess import ChineseDataset, collate_func
 from src.optimizer import get_optimizer
 from src.trainer import Trainer
-from src.utils import set_random_seeds, read_json
 
 
 def parse_arguments() -> Namespace:
