@@ -17,7 +17,7 @@ import pandas as pd
 import importlib
 from packaging import version
 from packaging.version import parse
-from utils import get_bnb_config
+from utils import get_bnb_config, get_prompt
 
 import torch
 import transformers
@@ -628,7 +628,12 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
                 'output': x['text'],
             })
         elif dataset_format == 'input-output':
-            # leave as is
+            dataset = dataset.map(lambda x: {
+                'input': get_prompt(x['instruction']),
+                'output': x['output'],
+            })
+            print('Formatted dataset with input-output format.')
+            print(dataset[0])
             pass
         # Remove unused columns.
         dataset = dataset.remove_columns(
