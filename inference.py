@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_path)
     test_data = read_json(args.input_path)
-    test_dataset = ClassicalChineseDataset(
+    test_dataset = ChineseDataset(
         test_data, tokenizer, is_train=False,
         incontext=True if args.method == "few-shot" else False
     )
