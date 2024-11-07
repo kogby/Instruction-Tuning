@@ -633,7 +633,8 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
                 'output': x['output'],
             })
             print('Formatted dataset with input-output format.')
-            print(dataset[0])
+            print(dataset['train'][0])
+            print(dataset['test'][0])
             pass
         # Remove unused columns.
         dataset = dataset.remove_columns(
