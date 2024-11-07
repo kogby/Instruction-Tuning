@@ -184,7 +184,7 @@ class TrainingArguments(transformers.Seq2SeqTrainingArguments):
         metadata={"help": " Lora alpha."}
     )
     lora_dropout: float = field(
-        default=0.0,
+        default=0.05,
         metadata={"help":"Lora dropout."}
     )
     max_memory_MB: int = field(
@@ -633,8 +633,8 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
                 'output': x['output'],
             })
             print('Formatted dataset with input-output format.')
-            print(dataset['train'][0])
-            print(dataset['test'][0])
+            # print(dataset['train'][0])
+            # print(dataset['test'][0])
             pass
         # Remove unused columns.
         dataset = dataset.remove_columns(
