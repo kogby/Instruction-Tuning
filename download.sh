@@ -8,7 +8,7 @@ if [ ! -d data ]; then
 fi
 
 if [ ! -d adapter_checkpoint ]; then
-    gdown https://drive.google.com/uc?id=1XrA6szuQn_G2FoYhivu3knwX3j6VAMRa -O adapter_checkpoint.zip
+    gdown https://drive.google.com/uc?id=1WIOj9SUvM4tSGSMqrfpo7q8xgAjiTJ-o -O adapter_checkpoint.zip
 fi
 
 if [ ! -d adapter_checkpoint ]; then
