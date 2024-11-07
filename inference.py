@@ -14,7 +14,7 @@ def parse_arguments() -> Namespace:
                         default="lora-fine-tune",
                         help="support method: zero-shot, few-shot, and lora-fine-tune")
     parser.add_argument("--model_path", type=str,
-                        default="pretrain/Taiwan-LLM-7B-v2.0-chat",
+                        default="",
                         help="Path to the checkpoint.")
     parser.add_argument("--adapt_checkpoint_path",
                         type=str,
