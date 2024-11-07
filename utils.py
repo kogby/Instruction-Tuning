@@ -13,7 +13,7 @@ def get_prompt(instruction: str, incontext: bool = False) -> str:
         2. USER: 第二年召迴朝廷，改任著作佐郎，直史館，改任左拾遺。\n翻譯成文言文：ASSISTANT: 明年召還，改著作佐郎，直史館，改左拾遺。
         請回答: USER: {instruction} ASSISTANT:"""
     else:
-        return f"你是中文能力極高的助理，以下是用戶和助理之間的對話。你要對用戶的問題提供有用、詳細並且精準翻譯的回答。以下的問題為文言文翻譯成白話文或白話文翻譯成文言文。USER: {instruction} ASSISTANT:"
+        return f"你是中文能力極高的助理，以下是用戶和助理之間的對話。你要對用戶的問題提供有用、詳細並且精準翻譯的回答。以下的問題為文言文翻譯成白話文或白話文翻譯成文言文，請回答：USER: {instruction} ASSISTANT:"
 
 
 def get_bnb_config() -> BitsAndBytesConfig:
