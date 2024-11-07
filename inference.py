@@ -41,7 +41,7 @@ if __name__ == "__main__":
         test_data, tokenizer, is_train=False,
         incontext=True if args.method == "few-shot" else False
     )
-    test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False, collate_fn=collate_func)
+    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, collate_fn=collate_func)
 
     # Prepare model
     device = torch.device(f"cuda:0" if torch.cuda.is_available() else "cpu")
