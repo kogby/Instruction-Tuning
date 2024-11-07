@@ -41,7 +41,7 @@ if __name__ == "__main__":
         test_data, tokenizer, is_train=False,
         incontext=True if args.method == "few-shot" else False
     )
-    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, collate_fn=collate_func)
+    test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False, collate_fn=collate_func)
 
     # Prepare model
     device = torch.device(f"cuda:0" if torch.cuda.is_available() else "cpu")
@@ -66,7 +66,7 @@ if __name__ == "__main__":
             generated_tokens = model.generate(
                 input_ids=batch_data["input_ids"],
                 attention_mask=batch_data["attention_mask"],
-                max_new_tokens=512,
+                max_new_tokens=256,
             )
             generations = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
             generations = generations.replace(batch_data["prompt"][0], "").strip()

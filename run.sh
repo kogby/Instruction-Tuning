@@ -10,3 +10,5 @@ python inference.py --model_path "${1}" \
 #                 --input_path "${3}" \
 #                 --output_path "${4}"
 #                 --method few-shot
+
+# Option: "yentinglin/Llama-3-Taiwan-8B-Instruct"
