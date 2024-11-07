@@ -4,7 +4,7 @@ import json
 import random
 import numpy as np
 
-def get_prompt(instruction: str, incontext: bool = False) -> str:
+def get_prompt(instruction: str, incontext: bool = True) -> str:
     '''Format the instruction as a prompt for LLM.'''
     if incontext:
         return f"""
