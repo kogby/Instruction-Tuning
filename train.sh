@@ -5,5 +5,6 @@ python qlora.py --dataset data/train.json \
                 --learning_rate 0.0008  \
                 --per_device_eval_batch_size 16\
                 --per_device_train_batch_size 16\
+                --max_steps 5000\
 
 # Option: "yentinglin/Llama-3-Taiwan-8B-Instruct"
