@@ -7,14 +7,14 @@ import numpy as np
 def get_prompt(instruction: str, incontext: bool = True) -> str:
     '''Format the instruction as a prompt for LLM.'''
     if incontext:
-        return f"你是精通古今中文的助理，以下是用戶和人工智能助理之間的對話。 \
+        return f"""你是精通古今中文的助理，以下是用戶和人工智能助理之間的對話。
              你要對用戶的問題提供詳細、精準的回答。將文言文翻譯成白話文，或白話文翻譯成文言文。回答應該只有中文且注意順暢度\
-             這邊提供你兩個範例。\
-             USER:翻譯成文言文：雅裏惱怒地說： 從前在福山田獵時，你誣陷獵官，現在又說這種話。答案：\
-             ASSISTANT:雅裏怒曰： 昔畋於福山，卿誣獵官，今復有此言。\
-             USER: 能服信政，此謂正紀。翻譯成現代文：\
-             ASSISTANT: 能守信於民，這叫作端正綱紀。\
-             USER: {instruction} ASSISTANT:"
+             這邊提供你兩個範例。
+             1. USER:翻譯成文言文：雅裏惱怒地說： 從前在福山田獵時，你誣陷獵官，現在又說這種話。
+             ASSISTANT:雅裏怒曰： 昔畋於福山，卿誣獵官，今復有此言。
+             2. USER: 能服信政，此謂正紀。翻譯成現代文：
+             ASSISTANT: 能守信於民，這叫作端正綱紀。
+             USER: {instruction} ASSISTANT:"""
     else:
         return f"你是中文能力極高的助理，以下是用戶和助理之間的對話。你要對用戶的問題提供有用、詳細並且精準翻譯的回答。以下的問題為文言文翻譯成白話文或白話文翻譯成文言文，請回答：USER: {instruction} ASSISTANT:"
 
