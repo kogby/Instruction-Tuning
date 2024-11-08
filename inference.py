@@ -1,5 +1,4 @@
 from argparse import Namespace, ArgumentParser
-# from tqdm import tqdm
 
 import torch
 from torch.utils.data import DataLoader
@@ -58,8 +57,6 @@ if __name__ == "__main__":
 
     prediction_list = []
     # Output prediction
-    # test_bar = tqdm(test_loader, desc=f"Testing")
-    # for _, batch_data in enumerate(test_bar, start=1):
     for _, batch_data in enumerate(test_loader, start=1):
         with torch.no_grad():
             batch_data = dict_to_device(batch_data, device)
