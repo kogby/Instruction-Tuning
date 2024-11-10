@@ -56,10 +56,11 @@ if __name__ == "__main__":
     model.eval()
 
     prediction_list = []
-    # Output prediction
+    
     for _, batch_data in enumerate(test_loader, start=1):
         with torch.no_grad():
             batch_data = dict_to_device(batch_data, device)
+            # Output prediction
             generated_tokens = model.generate(
                 input_ids=batch_data["input_ids"],
                 attention_mask=batch_data["attention_mask"],
